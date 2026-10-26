@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TaskFlow – Aufgaben &amp; Fokus</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1> TaskFlow</h1>
+  <button id="undoBtn" title="Rückgängig (Strg+Z)">↶ Rückgängig</button>
+  <button id="exportBtn">Export</button>
+  <button id="importBtn">Import</button>
+  <button id="themeBtn">Theme</button>
+  <input type="file" id="fileIn" accept=".json" hidden>
+</header>
+<main>
+  <div class="row">
+    <input type="text" id="title" placeholder="Neue Aufgabe … (Enter zum Hinzufügen)">
+    <select id="prio"><option value="mittel">Priorität: mittel</option><option value="hoch">hoch</option><option value="niedrig">niedrig</option></select>
+    <input type="date" id="due">
+    <input type="text" id="tags" placeholder="Tags, kommagetrennt" style="max-width:190px">
+    <button class="primary" id="addBtn">Hinzufügen</button>
+  </div>
+  <div class="row">
+    <input type="text" id="search" placeholder=" Suchen (Strg+K)">
+    <select id="fPrio"><option value="">Alle Prioritäten</option><option>hoch</option><option>mittel</option><option>niedrig</option></select>
+    <select id="fTag"><option value="">Alle Tags</option></select>
+    <select id="sort"><option value="manual">Sortierung: manuell</option><option value="due">Fälligkeit</option><option value="prio">Priorität</option><option value="alpha">Alphabet</option></select>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="bar"><i id="progress"></i></div>
+  <div class="board" id="board"></div>
+  <div class="pomo">
+    <div id="clock">25:00</div>
+    <select id="pomoMode"><option value="25">Fokus 25 min</option><option value="50">Fokus 50 min</option><option value="5">Pause 5 min</option><option value="15">Pause 15 min</option></select>
+    <button class="primary" id="pStart">Start</button><button id="pReset">Reset</button>
+    <span id="pInfo" style="color:var(--muted)"></span>
+  </div>
+  <div class="hint">Tipp: Karten per Drag &amp; Drop zwischen Spalten verschieben · Doppelklick auf Titel zum Bearbeiten · Strg+Z macht die letzte Änderung rückgängig.</div>
+</main>
+<div id="toast"></div>
+<script href="script.js" >
+</script>
+</body>
+</html>
